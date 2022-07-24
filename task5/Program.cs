@@ -23,7 +23,7 @@ void PrintMatrix(int[,] mtrx)
         for (int j = 0; j < mtrx.GetLength(1); j++)
         {
             if (j == 0) System.Console.Write(" | ");
-            System.Console.Write($"{mtrx[i, j], 2} | ");
+            System.Console.Write($"{mtrx[i, j],2} | ");
         }
         System.Console.WriteLine();
     }
@@ -46,8 +46,26 @@ void MatrixSumDiagElem(int[,] matrx)
     System.Console.WriteLine(" сумма элементов по главной диагонали равна: " + sum);
 }
 
-int [,] result = GetMatrix(7, 4, 1, 10);
+void MatrixSumDiagElem2(int[,] matrx)
+{
+    int sum = 0;
+    int index = 0;
+    if (matrx.GetLength(0) > matrx.GetLength(1))
+    {
+        index = 1;
+    }
+    for (int i = 0; i < matrx.GetLength(index); i++)
+    {
+        sum += matrx[i, i];
+    }
+    System.Console.WriteLine(" сумма элементов по главной диагонали равна: " + sum);
+}
+
+
+int[,] result = GetMatrix(6, 4, 1, 10);
 PrintMatrix(result);
 System.Console.WriteLine();
 MatrixSumDiagElem(result);
+System.Console.WriteLine();
+MatrixSumDiagElem2(result);
 System.Console.WriteLine();
