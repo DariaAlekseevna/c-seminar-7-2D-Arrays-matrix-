@@ -1,4 +1,4 @@
-﻿// двумерный массив, найти эл-ты, у кот. оба индекса четные и заменить элементы на их квадраты.
+﻿// в двумерном массиве найти сумму эл-тов на главной диагонали.
 
 int[,] GetMatrix(int m, int n, int min, int max)
 {
@@ -30,36 +30,24 @@ void PrintMatrix(int[,] mtrx)
     System.Console.Write(s);
 }
 
-/* void MatrixEvElemSq(int[,] matrx)
+void MatrixSumDiagElem(int[,] matrx)
 {
+    int sum = 0;
     for (int i = 0; i < matrx.GetLength(0); i++)
     {
         for (int j = 0; j < matrx.GetLength(1); j++)
         {
-            if (i % 2 == 0 && j % 2 == 0)
+            if (i == j)
             {
-                matrx[i, j] *= matrx[i, j];
+                sum += matrx[i, j];
             }
         }
     }
-}   */
-
-int[,] MatrixEvElemSq(int[,] matrx)
-{
-    for (int i = 0; i < matrx.GetLength(0); i+=2)
-    {
-        for (int j = 0; j < matrx.GetLength(1); j+=2)
-        {
-           // matrx[i, j] *= matrx[i, j]; 
-            matrx[i, j] = Convert.ToInt32(Math.Pow(matrx[i, j], 2));
-        }
-    }
-    return(matrx);
+    System.Console.WriteLine(" сумма элементов по главной диагонали равна: " + sum);
 }
 
-int[,] result = GetMatrix(4, 4, 1, 9);
+int [,] result = GetMatrix(7, 4, 1, 10);
 PrintMatrix(result);
 System.Console.WriteLine();
-MatrixEvElemSq(result);
-System.Console.WriteLine("в матрице эл-ты, у которых оба индекса четные заменены на их квадраты: ");
-PrintMatrix(result);
+MatrixSumDiagElem(result);
+System.Console.WriteLine();
