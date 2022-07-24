@@ -15,7 +15,7 @@ int[,] GetMatrix(int m, int n, int min, int max)
     return matrix;
 }
 
-void PrintMatrix(int[,] mtrx) //не взвращает значение
+void PrintMatrix(int[,] mtrx) //не возвращает значение
 {
     string s = new string('-', 23);
     System.Console.WriteLine(s);
